@@ -9,7 +9,7 @@
 
 #include "similarity.h"
 
-#include <limits.h>
+#include <float.h>
 
 PG_MODULE_MAGIC;
 
@@ -578,8 +578,8 @@ _PG_init(void)
 							 NULL,
 							 &pgs_nw_gap_penalty,
 							 -5.0,
-							 LONG_MIN,
-							 LONG_MAX,
+							 -DBL_MAX,
+							 DBL_MAX,
 							 PGC_USERSET,
 							 0,
 #if	PG_VERSION_NUM >= 90100
